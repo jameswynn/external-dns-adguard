@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: external-dns-adguard
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: external-dns-adguard-readonly-ingress
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+rules:
+  - apiGroups:
+      - ""
+      - networking.k8s.io
+    resources:
+      - services
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: external-dns-adguard-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: external-dns-adguard
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: external-dns-adguard-readonly-ingress
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-dns-adguard
+  labels:
+    app: external-dns-adguard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: external-dns-adguard
+  template:
+    metadata:
+      labels:
+        app: external-dns-adguard
+    spec:
+      serviceAccountName: external-dns-adguard
+      containers:
+        - name: external-dns-adguard
+          image: ghcr.io/jameswynn/external-dns-adguard:latest
+          env:
+            - name: MODE
+              value: PROD
+            - name: DATABASE_FILE
+              value: /data/rules.db
+            - name: ADGUARD_URL
+              value: "adguard.yourdomain.com"
+            - name: ADGUARD_SCHEME
+              value: "http"
+            - name: ADGUARD_USERNAME
+              value: "someuser"
+            - name: ADGUARD_PASSWORD
+              value: "somepass"

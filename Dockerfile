@@ -10,7 +10,7 @@ COPY go.mod go.sum $APP_DIR
 RUN go mod download
 
 COPY ./ $APP_DIR
-RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 \
+RUN CGO_ENABLED=1 GOOS=linux \
    go build -gcflags "all=-N -l" -o /service
 
 FROM debian:buster-slim AS prod_img

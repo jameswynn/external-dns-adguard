@@ -2,9 +2,9 @@ package app
 
 import (
 	"context"
-	"externaldns-adguard-go/internal/adguard"
-	"externaldns-adguard-go/internal/config"
-	"externaldns-adguard-go/internal/database"
+	"external-dns-adguard/internal/adguard"
+	"external-dns-adguard/internal/config"
+	"external-dns-adguard/internal/database"
 	"fmt"
 	coreV1 "k8s.io/api/core/v1"
 	networkingV1 "k8s.io/api/networking/v1"

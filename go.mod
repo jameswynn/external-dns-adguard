@@ -1,4 +1,4 @@
-module externaldns-adguard-go
+module external-dns-adguard
 
 go 1.18
 

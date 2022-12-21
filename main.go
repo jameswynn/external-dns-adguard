@@ -1,7 +1,7 @@
 package main
 
 import (
-	"externaldns-adguard-go/internal/app"
+	"external-dns-adguard/internal/app"
 )
 
 func main() {

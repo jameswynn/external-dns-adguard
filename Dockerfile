@@ -1,7 +1,6 @@
-FROM golang:1.18 AS dev_img
+FROM golang:1.18-alpine3.17 AS build
 
-RUN apt update && apt install git
-
+ENV CGO_ENABLED=0
 ENV APP_DIR=$GOPATH/src/go-server/
 RUN mkdir -p $APP_DIR
 WORKDIR $APP_DIR
@@ -10,9 +9,8 @@ COPY go.mod go.sum $APP_DIR
 RUN go mod download
 
 COPY ./ $APP_DIR
-RUN CGO_ENABLED=1 GOOS=linux \
-   go build -gcflags "all=-N -l" -o /service
+RUN go build -o /external-dns-adguard
 
-FROM debian:buster-slim AS prod_img
-COPY --from=dev_img /service /
-ENTRYPOINT /service
+FROM alpine:3.17 AS prod
+COPY --from=build /external-dns-adguard /
+ENTRYPOINT /external-dns-adguard

@@ -1,5 +1,10 @@
 # external-dns-adguard
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jameswynn/external-dns-adguard/ci.yaml)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jameswynn/external-dns-adguard)
+![GitHub Release Date](https://img.shields.io/github/release-date/jameswynn/external-dns-adguard)
+![GitHub](https://img.shields.io/github/license/jameswynn/external-dns-adguard)
+
 This project aims to be a mostly compatible implementation of external-dns
 but targeting AdGuard Home as the DNS provider. It is similar to and, in fact,
 inspired by the [python version](https://github.com/NatiSayada/external-dns-adguard).

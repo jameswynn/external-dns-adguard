@@ -7,9 +7,9 @@ require (
 	github.com/monaco-io/request v1.0.15
 	github.com/spf13/viper v1.14.0
 	gorm.io/gorm v1.24.3
-	k8s.io/api v0.26.0
-	k8s.io/apimachinery v0.26.0
-	k8s.io/client-go v0.26.0
+	k8s.io/api v0.26.1
+	k8s.io/apimachinery v0.26.1
+	k8s.io/client-go v0.26.1
 )
 
 require (

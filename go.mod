@@ -9,7 +9,7 @@ require (
 	gorm.io/gorm v1.24.3
 	k8s.io/api v0.26.1
 	k8s.io/apimachinery v0.26.1
-	k8s.io/client-go v0.26.1
+	k8s.io/client-go/v11 v11.0.0+incompatible
 )
 
 require (

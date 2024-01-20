@@ -1,4 +1,4 @@
-FROM golang:1.18-alpine3.17 AS build
+FROM golang:1.21-alpine3.17 AS build
 
 ENV CGO_ENABLED=0
 ENV APP_DIR=$GOPATH/src/go-server/

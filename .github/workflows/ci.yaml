@@ -43,7 +43,7 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
 
       - name: Log in to the Container registry
-        uses: docker/login-action@3da7dc6e2b31f99ef2cb9fb4c50fb0971e0d0139
+        uses: docker/login-action@3d58c274f17dffee475a5520cbe67f0a882c4dbb
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}

@@ -11,6 +11,6 @@ RUN go mod download
 COPY ./ $APP_DIR
 RUN go build -o /external-dns-adguard
 
-FROM alpine:3.19 AS prod
+FROM alpine:3.20 AS prod
 COPY --from=build /external-dns-adguard /
 ENTRYPOINT /external-dns-adguard

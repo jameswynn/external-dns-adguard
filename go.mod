@@ -8,7 +8,7 @@ require (
 	github.com/glebarez/sqlite v1.10.0
 	github.com/monaco-io/request v1.0.16
 	github.com/spf13/viper v1.18.2
-	gorm.io/gorm v1.25.5
+	gorm.io/gorm v1.25.12
 	k8s.io/api v0.29.1
 	k8s.io/apimachinery v0.29.1
 	k8s.io/client-go v0.29.1

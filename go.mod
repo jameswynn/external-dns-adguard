@@ -2,7 +2,7 @@ module external-dns-adguard
 
 go 1.21
 
-toolchain go1.21.6
+toolchain go1.27.1
 
 require (
 	github.com/glebarez/sqlite v1.10.0
